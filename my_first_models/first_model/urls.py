@@ -1,6 +1,7 @@
 from django.urls import path
-from first_model import views
+from .views import HomeView, ArticlesDetailsView
 
 urlpatterns = [
-    path("", views.home, name = 'home'),
+    path("", HomeView.as_view(), name='home'),
+    path('article/<int:pk>', ArticlesDetailsView.as_view(), name="article-details")
 ]
